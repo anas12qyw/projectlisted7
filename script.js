@@ -1,11 +1,13 @@
-function moveRandomEl(elm) {
-    elm.style.position = "absolute";
-    elm.style.top = Math.floor(Math.random() * 90 + 5) + "%";
-    elm.style.left = Math.floor(Math.random() * 90 + 5) + "%";
-}
+// Get all image containers
+const imageContainers = document.querySelectorAll('.image-container');
 
-const moveRandom = document.querySelector("#move-random");
+// Add event listeners to each image container
+imageContainers.forEach(container => {
+    container.addEventListener('mouseover', () => {
+        container.style.transform = 'scale(1.1)'; // Zoom in on mouseover
+    });
 
-moveRandom.addEventListener("mouseenter", function (e) {
-    moveRandomEl(e.target);
+    container.addEventListener('mouseleave', () => {
+        container.style.transform = 'scale(1)'; // Reset scale on mouseleave
+    });
 });
